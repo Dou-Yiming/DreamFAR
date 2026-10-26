@@ -13,11 +13,11 @@ Contents:
 
 ## Preview locally
 
-Videos need a server that supports HTTP Range requests, so opening `index.html` from disk is not enough. From the
-repository root:
+The videos are streamed with HTTP Range requests, so serve the folder instead of opening `index.html` from disk.
+From the repository root:
 
 ```bash
-python3 -m http.server 8000 --bind 127.0.0.1
+npx http-server -a 127.0.0.1 -p 8000 -g   # supports Range requests (python3 -m http.server does not: seeking may stall)
 # then open http://127.0.0.1:8000/
 ```
 
